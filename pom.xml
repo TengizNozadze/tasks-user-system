@@ -1,35 +1,34 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0">
-    <packaging>pom</packaging>
-    <modules>
-        <module>gateway-service</module>
-      <module>auth-service</module>
-      <module>user-service</module>
-      <module>task-service</module>
-      <module>shared-security</module>
-      <module>shared-utils</module>
-    </modules>
-</project> ...>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+                             http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>com.zsystem</groupId>
-  <artifactId>task-user-system</artifactId>
+
+  <groupId>com.fullstack</groupId>
+  <artifactId>fullstack-platform</artifactId>
   <version>1.0.0</version>
   <packaging>pom</packaging>
 
+  <name>Fullstack Platform</name>
+  <description>Parent Maven project for microservices and shared modules</description>
+
   <modules>
-    <module>common-security</module>
     <module>gateway-service</module>
     <module>auth-service</module>
     <module>user-service</module>
     <module>task-service</module>
+    <module>shared-security</module>
+    <module>shared-utils</module>
   </modules>
 
   <properties>
-    <java.version>17</java.version>
-    <spring.boot.version>3.1.2</spring.boot.version>
+    <java.version>18</java.version>
+    <spring.boot.version>3.1.5</spring.boot.version>
   </properties>
 
   <dependencyManagement>
     <dependencies>
+      <!-- Spring Boot BOM -->
       <dependency>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-dependencies</artifactId>
@@ -43,6 +42,7 @@
   <build>
     <pluginManagement>
       <plugins>
+        <!-- Spring Boot Plugin -->
         <plugin>
           <groupId>org.springframework.boot</groupId>
           <artifactId>spring-boot-maven-plugin</artifactId>
@@ -50,4 +50,5 @@
       </plugins>
     </pluginManagement>
   </build>
+
 </project>
