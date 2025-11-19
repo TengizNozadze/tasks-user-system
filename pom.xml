@@ -1,0 +1,53 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0">
+    <packaging>pom</packaging>
+    <modules>
+        <module>gateway-service</module>
+      <module>auth-service</module>
+      <module>user-service</module>
+      <module>task-service</module>
+      <module>shared-security</module>
+      <module>shared-utils</module>
+    </modules>
+</project> ...>
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.zsystem</groupId>
+  <artifactId>task-user-system</artifactId>
+  <version>1.0.0</version>
+  <packaging>pom</packaging>
+
+  <modules>
+    <module>common-security</module>
+    <module>gateway-service</module>
+    <module>auth-service</module>
+    <module>user-service</module>
+    <module>task-service</module>
+  </modules>
+
+  <properties>
+    <java.version>17</java.version>
+    <spring.boot.version>3.1.2</spring.boot.version>
+  </properties>
+
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-dependencies</artifactId>
+        <version>${spring.boot.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+
+  <build>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>org.springframework.boot</groupId>
+          <artifactId>spring-boot-maven-plugin</artifactId>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+  </build>
+</project>
