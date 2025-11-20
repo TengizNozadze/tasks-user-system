@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="shared-security" />
+        <module name="auth-service" />
+        <module name="task-service" />
+        <module name="shared-utils" />
+        <module name="user-service" />
+        <module name="gateway-service" />
+      </profile>
+    </annotationProcessing>
+  </component>
+</project>
