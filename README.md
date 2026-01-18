@@ -1,6 +1,7 @@
-# Full-Stack Microservices System. A Tine example of a possible architecture for a larget application.
-# This is a production-grade, Swarm-ready full-stack application built with Spring Boot microservices and a React frontend. It manages tasks that are created without assigned users and later enriched via a background processor that fetches usernames from a user service based on task category. The system is modular, secure, reproducible, and optimized for recruiter-grade presentation. 
-# A micro exmaple for showing all the main technologies we use for at our main application, such as:
+# Full-Stack Microservices System. A micro model/example of an architecture for a larger application.
+
+This is a production-grade, Swarm-ready full-stack application built with Spring Boot microservices and a React frontend. It manages tasks that are created without assigned users and later enriched via a background processor that fetches usernames from a user service based on task category. The system is modular, secure, reproducible, and optimized for recruiter-grade presentation. 
+A micro exmaple for showing all the main technologies we use for at our main application, such as:
 ## 🧱 Architecture Overview
 
 - **Backend:** Spring Boot microservices (Gateway, Auth, User, Task)
