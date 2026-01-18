@@ -24,6 +24,7 @@
   <properties>
     <java.version>18</java.version>
     <spring.boot.version>3.1.5</spring.boot.version>
+    <spring.cloud.version>2022.0.5</spring.cloud.version>
   </properties>
 
   <dependencyManagement>
@@ -36,8 +37,27 @@
         <type>pom</type>
         <scope>import</scope>
       </dependency>
+      <!-- Spring Cloud BOM -->
+      <dependency>
+        <groupId>org.springframework.cloud</groupId>
+        <artifactId>spring-cloud-dependencies</artifactId>
+        <version>${spring.cloud.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
     </dependencies>
   </dependencyManagement>
+
+
+  <!-- Add common test dependency so old junit.framework tests compile in modules -->
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.13.2</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
 
   <build>
     <pluginManagement>
@@ -46,6 +66,7 @@
         <plugin>
           <groupId>org.springframework.boot</groupId>
           <artifactId>spring-boot-maven-plugin</artifactId>
+          <version>${spring.boot.version}</version>
         </plugin>
       </plugins>
     </pluginManagement>

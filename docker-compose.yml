@@ -1,0 +1,93 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:14
+    environment:
+      POSTGRES_DB: fullstack
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    networks:
+      - app-net
+
+  redis:
+    image: redis:7
+    command: ["redis-server", "--save", "" ]
+    networks:
+      - app-net
+
+  fluentd:
+    image: fluent/fluentd:latest
+    networks:
+      - app-net
+
+  user-service:
+    build:
+      context: ../
+      dockerfile: user-service/Dockerfile
+    environment:
+      - JDBC_URL=jdbc:postgresql://postgres:5432/fullstack
+      - JDBC_USER=postgres
+      - JDBC_PASSWORD=postgres
+      - REDIS_HOST=redis
+    depends_on:
+      - postgres
+      - redis
+    networks:
+      - app-net
+    ports:
+      - "8081:8081"
+
+  task-service:
+    build:
+      context: ../
+      dockerfile: task-service/Dockerfile
+    environment:
+      - JDBC_URL=jdbc:postgresql://postgres:5432/fullstack
+      - JDBC_USER=postgres
+      - JDBC_PASSWORD=postgres
+      - USER_SERVICE_URL=http://user-service:8081
+    depends_on:
+      - postgres
+      - user-service
+    networks:
+      - app-net
+    ports:
+      - "8082:8082"
+
+  auth-service:
+    build:
+      context: ../
+      dockerfile: auth-service/Dockerfile
+    networks:
+      - app-net
+    ports:
+      - "8080:8080"
+
+  gateway-service:
+    build:
+      context: ../
+      dockerfile: gateway-service/Dockerfile
+    networks:
+      - app-net
+    ports:
+      - "8085:8085"
+
+  frontend:
+    build:
+      context: ../
+      dockerfile: frontend-app/Dockerfile
+    ports:
+      - "3000:3000"
+    networks:
+      - app-net
+
+volumes:
+  pgdata:
+
+networks:
+  app-net:
+    driver: bridge
+

@@ -10,9 +10,7 @@
         <version>1.0.0</version>
     </parent>
 
-    <groupId>com.fullstack</groupId>
     <artifactId>shared-security</artifactId>
-    <version>1.0.0</version>
     <packaging>jar</packaging>
 
     <name>shared-security</name>
@@ -36,6 +34,12 @@
             <artifactId>spring-boot-starter-security</artifactId>
         </dependency>
 
+        <!-- Spring Cloud OpenFeign -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
+        </dependency>
+
         <!-- JWT (JJWT or Nimbus) -->
         <dependency>
             <groupId>io.jsonwebtoken</groupId>
@@ -53,6 +57,14 @@
             <artifactId>jjwt-jackson</artifactId>
             <version>0.11.5</version>
             <scope>runtime</scope>
+        </dependency>
+
+        <!-- Servlet API (provided) -->
+        <dependency>
+            <groupId>jakarta.servlet</groupId>
+            <artifactId>jakarta.servlet-api</artifactId>
+            <version>6.0.0</version>
+            <scope>provided</scope>
         </dependency>
 
         <!-- Lombok -->
